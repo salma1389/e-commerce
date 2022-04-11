@@ -1,0 +1,46 @@
+.navb{
+  background-color: rgb(61, 61, 146);
+}
+
+/* panier icon */
+.btnCartCount {
+    width: 50px;
+    height: 50px;
+    /* background: #000; */
+    color: #fff;
+    border-radius: 15px;
+    transform: rotate(45deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* position: fixed; */
+    top: 15.5rem;
+    cursor: pointer;
+    right: 1rem;
+  }
+  
+  .btnCartCount .count {
+    position: absolute;
+    background: orangered;
+    top: -0.001rem;
+    left: -0.1rem;
+    transform: rotate(-45deg);
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    font-size: 0.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+  }
+  .btnCartCount i {
+    transform: rotate(-45deg);
+    /* width: 0.8rem; */
+  }
+  
+  /*  */
+
+  .nameMenu{
+      color: rgb(243, 241, 238);
+  }
