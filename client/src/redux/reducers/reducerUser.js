@@ -1,4 +1,4 @@
-import {  SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS } from "./actionType";
+import {  SIGN_UP, SIGN_UP_FAIL, SIGN_UP_SUCCESS } from "../actionTypes/actionTypeUser";
 
 const init = {
   user: null,

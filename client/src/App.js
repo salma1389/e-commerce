@@ -1,12 +1,13 @@
 
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import SignUp from './components/SignUp';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from './components/Home';
-import Login from './components/Login';
-import Products from './components/Products';
-import Navbarr from './components/Navbarr';
+import Home from './components/Home/Home';
+import SignUp from './components/SignUp/SignUp';
+import Login from './components/Login/Login';
+import Products from './components/Products/Products';
+import Navbarr from './components/Navbar/Navbarr';
+import CategorysList from './components/Categorys/CategorysList';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/categorys" element={<CategorysList/>} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
   

@@ -3,7 +3,7 @@ import './SignUp.css';
 import {Form,Button} from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { userSignUp } from "../redux/actions";
+import { userSignUp } from "../../redux/actions/actionUser";
 const SignUp = () => {
 const {loading}=useSelector(state=>state)
     const [fullName, setFullName] = useState("");

@@ -4,9 +4,12 @@ const connectDb=require("./config/connectDb")
 connectDb()
 const user=require("./routes/user")
 const product=require("./routes/product")
+const category=require("./routes/category")
+
 app.use(express.json())
 app.use("/user",user)
 app.use("/products",product)
+app.use("/categorys",category)
 
 // app.get('/',(req,res)=>{
 //     res.json({msg:"welcome to my world"})

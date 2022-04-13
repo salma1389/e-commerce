@@ -2,7 +2,7 @@ import {
     SIGN_UP,
     SIGN_UP_FAIL,
     SIGN_UP_SUCCESS,
-  } from "./actionType";
+  } from "../actionTypes/actionTypeUser";
   import axios from "axios";
   
   export const userSignUp = (newUser) => async (dispatch) => {

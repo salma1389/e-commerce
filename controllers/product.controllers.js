@@ -19,6 +19,7 @@ const createproduct= async (req,res)=>{
       ratings:req.body.ratings,
       avatar:result.secure_url,
       cloudinary_id:result.public_id,
+      subcategory:req.body.subcategory,
       category:req.body.category})
     await newProduct.save()
     res.status(206).send(newProduct)
@@ -49,6 +50,17 @@ const  getProducts = async (req, res) => {
     }
   };
 
+  // get products with category=women
+  const getProductBycategory = async (req, res) => {
+    try {
+      const oneProduct = await product.find({category:"women"});
+     
+      res.send(oneProduct);
+    } catch (error) {
+        res.status(500).json({msg:error.message})
+    }
+  };
+
   //  get product by Id and update it
   const updateProduct = async (req, res) => {
     try {
@@ -57,9 +69,16 @@ const  getProducts = async (req, res) => {
   const result=await cloudinary.uploader.upload(req.file.path);
   const data={
     nameproduct:req.body.nameproduct || oneproduct.nameproduct,
+    description:req.body.description|| oneproduct.description,
+    price:req.body.price || oneproduct.price,
+    countInStock:req.body.countInStock || oneproduct.countInStock,
+    color:req.body.color || oneproduct.color,
+    size:req.body.size || oneproduct.size,
     ratings:req.body.ratings || oneproduct.ratings,
     avatar:result.secure_url || oneproduct.avatar,
     cloudinary_id:result.public_id || oneproduct.cloudinary_id,
+    subcategory:req.body.subcategory || oneproduct.subcategory,
+    category:req.body.category || oneproduct.category
   };
 
   const updatedproduct = await product.findByIdAndUpdate(req.params._id, data ,{new:true})
@@ -87,5 +106,6 @@ const  getProducts = async (req, res) => {
     getProducts,
     getProductById,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    getProductBycategory
   };

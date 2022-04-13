@@ -3,7 +3,7 @@ import { Carousel, Form , Button} from 'react-bootstrap'
 // import {SendIcon} from "'@mui/icons-material'";
 // import {SendIcon} from "@mui/material/icons"
 import { useDispatch } from 'react-redux';
-import { userSignUp } from '../redux/actions';
+import { userSignUp } from '../../redux/actions/actionUser';
 import './Home.css';
 
 
