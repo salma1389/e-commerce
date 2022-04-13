@@ -1,2 +1,4 @@
 /node_modules
-/cloudinary.js
+
+storage/*.key
+default.json
