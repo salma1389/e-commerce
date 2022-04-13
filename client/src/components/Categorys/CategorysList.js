@@ -4,13 +4,13 @@ import { categGet } from '../../redux/actions/actionCateg';
 import CategoryCard from './CategoryCard';
 
 const CategorysList = () => {
-  const {category,loading} = useSelector( state => state);
-  console.log(loading)
+  const {category,loading} = useSelector( state => state.categReducer);
+  console.log(category)
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(categGet());
-  }, [dispatch])
+  }, [])
   return (
     <div>
       { loading?<h1> loading...</h1>:
