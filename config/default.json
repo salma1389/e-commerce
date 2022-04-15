@@ -1,8 +1,0 @@
-{
-    "db":"mongodb+srv://salma145:0101@cluster0.wufdk.mongodb.net/project-ws?retryWrites=true&w=majority",
-    "secret":"shhhhhhh",
-    "CLOUDINARY_CLOUD_NAME":"go-mu-code",
-    "CLOUDINARY_API_KEY": "618129844258316"  ,
-    "CLOUDINARY_API_SECRET":"LMQ_3a6dNlRBG2iT7uqKEtn-rZg"
-
-}
