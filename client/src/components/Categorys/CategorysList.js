@@ -14,7 +14,9 @@ const CategorysList = () => {
   return (
     <div>
       { loading?<h1> loading...</h1>:
-      category && React.Children.toArray( category.map( el => < CategoryCard categ={el} />))}
+      category && React.Children.toArray( category.map( el => < CategoryCard categ={el} />))
+  
+      }
 
     </div>
   )

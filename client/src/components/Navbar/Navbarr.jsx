@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Navbarr.css';
 import { Container, Form, FormControl, Nav, Navbar, NavDropdown , Button, Badge } from 'react-bootstrap'
 import {  ShoppingCartOutlined } from "@mui/material";
+import { useDispatch, useSelector } from 'react-redux';
+import { userGetProfil, userLogOut } from '../../redux/actions/actionUser';
 
 const Navbarr = () => {
+  const {loading,user}=useSelector(state=>state.userReducer)
+//  console.log(user)
+  const dispatch=useDispatch();
+  useEffect(() => {
+   dispatch(userGetProfil())
+  }, [dispatch])
+
+  
   return (
     <div>
         <Navbar className='navb'  expand="lg">
@@ -16,9 +26,9 @@ const Navbarr = () => {
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link className='nameMenu' href="/">Home</Nav.Link>
-        <Nav.Link  className='nameMenu' href="/products">Products</Nav.Link>
-        <NavDropdown className='nameMenu' title="Categories" id="navbarScrollingDropdown">
+        <Nav.Link style={{color:"rgb(243, 241, 238)"}} href="/">Home</Nav.Link>
+        <Nav.Link  style={{color:"rgb(243, 241, 238)"}} href="/products">Products</Nav.Link>
+        <NavDropdown style={{color:"rgb(243, 241, 238)"}} title="Categories" id="navbarScrollingDropdown">
           <NavDropdown.Item href="#action3">Men</NavDropdown.Item>
           <NavDropdown.Item href="#action4">Women</NavDropdown.Item>
           <NavDropdown.Item href="#action4">Kids</NavDropdown.Item>
@@ -26,8 +36,16 @@ const Navbarr = () => {
        
       </Nav>
       <Form className="d-flex">
+      {user ? user &&
+        <div className="d-flex">
+      <Nav.Link className='nameMenu' href="/profil">{user.fullName}</Nav.Link>
+      <Nav.Link className='nameMenu'  onClick={()=>dispatch(userLogOut())}>LogOut</Nav.Link>
+        </div>:
+        <div className="d-flex">
       <Nav.Link className='nameMenu' href="/signUp">SignUp</Nav.Link>
       <Nav.Link className='nameMenu' href="/login">Login</Nav.Link>
+      </div>
+}
       <div className='btnCartCount' >
          
     <div className='count'>0</div>

@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import './SignUp.css';
 import {Form,Button} from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { userSignUp } from "../../redux/actions/actionUser";
+
 const SignUp = () => {
-const {loading}=useSelector(state=>state)
+const {loading}=useSelector(state=>state.userReducer)
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("")
@@ -18,12 +19,17 @@ const {loading}=useSelector(state=>state)
     <div  className="container">
       <div className="wrapper">
       
-      {
-          loading?<h1>Loading...</h1>:<Form onSubmit={handleSubmit}>
-           <h1>CREATE AN ACCOUNT</h1>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : localStorage.getItem("token") ? (
+        <Navigate to="/profil" />
+      ) : (<Form onSubmit={handleSubmit}>
+           <h2>CREATE AN ACCOUNT</h2>
+           <Form.Group className="mb-3">
         <Form.Label>Full Name</Form.Label>
           <Form.Control type="text" placeholder="Full name" value={fullName} onChange={e=>setFullName(e.target.value)} />
+          </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" value={email} onChange={e=>setEmail(e.target.value)} />
           <Form.Text className="text-muted">
@@ -43,7 +49,7 @@ const {loading}=useSelector(state=>state)
           Create
         </Button>
       </Form>
-      }
+      )}
       <Link to="/login"><p>Do you have an account  already ?
         <br/>
         Go to Login

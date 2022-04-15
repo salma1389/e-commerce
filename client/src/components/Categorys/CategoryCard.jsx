@@ -15,13 +15,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-import "./Categorys.css"
-
-const CategoryCard = ({categ}) => {
-  return (
-    <div>
-    
-{/* const ExpandMore = styled((props) => {
+const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
@@ -32,7 +26,8 @@ const CategoryCard = ({categ}) => {
   }),
 }));
 
-export default function RecipeReviewCard() {
+export default function RecipeReviewCard({categ}) {
+  console.log(categ)
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -44,7 +39,7 @@ export default function RecipeReviewCard() {
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+          {categ.categName[0]}
           </Avatar>
         }
         action={
@@ -52,22 +47,15 @@ export default function RecipeReviewCard() {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
+        title={categ.categName}
         subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
+        image={categ.img}
+        alt={categ.categName}
       />
-      <CardContent>
-        <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
-        </Typography>
-      </CardContent>
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
           <FavoriteIcon />
@@ -114,11 +102,5 @@ export default function RecipeReviewCard() {
         </CardContent>
       </Collapse>
     </Card>
-  ); */}
-{/* } */}
-  <h1>i'm fine working</h1>
-      </div>
-  )
+  );
 }
-
-export default CategoryCard 

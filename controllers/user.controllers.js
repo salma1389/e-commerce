@@ -6,13 +6,13 @@ const secret=config.get("secret")
 
 
 exports.signUp=async(req,res)=>{
-    const {fullName,email,password}=req.body;
+    const {fullName,email,password,roles}=req.body;
     try {
        const existingUser= await usser.findOne({email})
        if (existingUser) {
            res.status(401).json({msg:"user is already exist"})
        }
-       const newUser = new usser ({fullName,email,password}) 
+       const newUser = new usser ({fullName,email,password,roles}) 
        const salt=await bc.genSalt(10)
        const hash=await bc.hashSync(password,salt)
        newUser.password=hash
@@ -20,7 +20,8 @@ exports.signUp=async(req,res)=>{
        const payload= {
            _id:newUser._id,
            fullName:newUser.fullName,
-           email:newUser.email
+           email:newUser.email,
+           roles:newUser.roles
        };
 
       const token=jwt.sign(payload,secret)
@@ -30,7 +31,8 @@ exports.signUp=async(req,res)=>{
                id:newUser._id,
                fullName:newUser.fullName,
                email:newUser.email,
-               password:newUser.password
+               password:newUser.password,
+               roles:newUser.roles
            }
        })
     } catch (error) {

@@ -67,10 +67,10 @@ const Home = () => {
         <Form.Control className='control' placeholder="Your email" type="email" value={email} onChange={e=>setEmail(e.target.value)}/>
         
         
-        {/* <Button className='btn' variant="contained" endIcon={<SendIcon />}> */}
-        <Button className='btn' variant="contained" >
-             Send
-        </Button>
+        {/* <Button className='btn' variant="contained" endIcon={<SendIcon />}>
+      </Button>  */}
+        {/* {/* <Button className='btn' variant="contained" >
+             Send */}
      
       </div>
    

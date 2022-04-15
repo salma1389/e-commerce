@@ -8,6 +8,7 @@ import Login from './components/Login/Login';
 import Products from './components/Products/Products';
 import Navbarr from './components/Navbar/Navbarr';
 import CategorysList from './components/Categorys/CategorysList';
+import Profil from './components/Profil/Profil';
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
         <Route path="/categorys" element={<CategorysList/>} />
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
-  
+        <Route path="/profil" element={<Profil />} />
         </Routes>
       </Router>
     </div>
