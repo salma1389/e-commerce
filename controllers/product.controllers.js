@@ -65,8 +65,8 @@ const  getProducts = async (req, res) => {
   const updateProduct = async (req, res) => {
     try {
       const oneproduct = await product.findById(req.params._id);
-  await cloudinary.uploader.destroy(oneproduct.cloudinary_id)
-  const result=await cloudinary.uploader.upload(req.file.path);
+  // await cloudinary.uploader.destroy(oneproduct.cloudinary_id)
+  // const result=await cloudinary.uploader.upload(req.file.path);
   const data={
     nameproduct:req.body.nameproduct || oneproduct.nameproduct,
     description:req.body.description|| oneproduct.description,
@@ -75,8 +75,8 @@ const  getProducts = async (req, res) => {
     color:req.body.color || oneproduct.color,
     size:req.body.size || oneproduct.size,
     ratings:req.body.ratings || oneproduct.ratings,
-    avatar:result.secure_url || oneproduct.avatar,
-    cloudinary_id:result.public_id || oneproduct.cloudinary_id,
+    // avatar:await cloudinary.uploader.upload(req.file.path).secure_url || oneproduct.avatar,
+    // cloudinary_id:await cloudinary.uploader.upload(req.file.path).public_id || oneproduct.cloudinary_id,
     subcategory:req.body.subcategory || oneproduct.subcategory,
     category:req.body.category || oneproduct.category
   };

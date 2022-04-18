@@ -4,7 +4,7 @@ import { userGetProfil } from '../../redux/actions/actionUser';
 
 const Profil = () => {
     const {user,loading}=useSelector(state=>state.userReducer)
-    console.log(user)
+    // console.log(user)
     const dispatch=useDispatch();
     useEffect(() => {
      dispatch(userGetProfil())

@@ -32,7 +32,8 @@ import {
   };
 
   export const userLogOut = () => {
-    localStorage.removeItem('token')
+    localStorage.clear()
+   
     document.location.href = '/'
   return  ({ type: LOGOUT}) 
   

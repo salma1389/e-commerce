@@ -24,7 +24,7 @@ import { ADD_PRODUCT, ADD_PRODUCT_FAIL, ADD_PRODUCT_SUCCESS, DELETE_PRODUCT, DEL
     export const oneproductGet = (_id) => async (dispatch) => {
       dispatch({ type: GET_ONE_PRODUCT });
       try {
-        const res = await axios.get(`/products/api/product:${_id}`);
+        const res = await axios.get(`/products/api/product/${_id}`);
         dispatch({
           type: GET_ONE_PRODUCT_SUCCESS,
           payload: res.data,
@@ -58,7 +58,7 @@ import { ADD_PRODUCT, ADD_PRODUCT_FAIL, ADD_PRODUCT_SUCCESS, DELETE_PRODUCT, DEL
      export const updateproduct = (product) => async (dispatch) => {
       dispatch({ type: UPDATE_PRODUCT});
       try {
-        const res = await axios.put(`/products/api/product:${product._id}`,product);
+        const res = await axios.put(`/products/api/product/${product._id}`,product);
         dispatch({
           type: UPDATE_PRODUCT_SUCCESS,
           payload: res.data,
@@ -75,7 +75,7 @@ import { ADD_PRODUCT, ADD_PRODUCT_FAIL, ADD_PRODUCT_SUCCESS, DELETE_PRODUCT, DEL
     export const deleteproduct = (_id) => async (dispatch) => {
       dispatch({ type: DELETE_PRODUCT });
       try {
-        const res = await axios.delete(`/products/api/product/:${_id}`);
+        const res = await axios.delete(`/products/api/product/${_id}`);
         dispatch({
           type: DELETE_PRODUCT_SUCCESS,
           payload: res.data,

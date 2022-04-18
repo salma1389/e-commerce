@@ -8,18 +8,18 @@ const productSchema = mongoose.Schema({
   },
   description: {
     type: String,
-    required: [true,"Please add description to your product"],
+    required: [false,"Please add description to your product"],
     maxLength:[4000,"description can not exceed 4000 characters"]
 
   },
   price: {
     type: Number,
-    required: [true,"Please add a price to your product"],
+    required: [false,"Please add a price to your product"],
     maxLength:[8,"price can not exceed 8 characters"]
   },
   countInStock: {
     type: Number,
-    required: [true,"Please add some stock to you product"],
+    required: [false,"Please add some stock to you product"],
     maxLength:[3,"stock can not exceed 3 characters"]
 
   },
@@ -33,7 +33,7 @@ const productSchema = mongoose.Schema({
   ratings: {
     type: Number,
     default: 0,
-    required:[true,"ratings must be from 1 to 5"]
+    required:[false,"ratings must be from 1 to 5"]
   },
   avatar:{
     type: String,
@@ -43,11 +43,11 @@ const productSchema = mongoose.Schema({
   },
   subcategory: {
     type: String,
-    required: [true,"Please add a sub category to your product"],
+    required: [false,"Please add a sub category to your product"],
   },
   category: {
     type: String,
-    required: [true,"Please add a category to your product which must be women , men , kids"],
+    required: [false,"Please add a category to your product which must be women , men , kids"],
   },
 });
 
