@@ -18,6 +18,8 @@ import ProductsEdit from './ProductsEdit';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteproduct, productGet } from '../../redux/actions/actionProduct';
 import AddProducts from './AddProducts';
+import { addToCart } from '../../redux/actions/actionCart';
+import {  useNavigate } from 'react-router-dom';
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -32,14 +34,23 @@ const ExpandMore = styled((props) => {
 
 export default function RecipeReviewCard({prod}) {
   const {user} = useSelector( state => state.userReducer);
+  const [qty, setQty] = React.useState(1)
+
   // console.log(prod)
   // console.log(user)
   const dispatch = useDispatch();
+  const navigate =useNavigate()
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+  const addToCartHandler=()=>{
+    
+      navigate(`/cart/${prod._id}`)
+    
+
+}
 
   return (
     <Card sx={{ maxWidth: 345 }}>
@@ -110,6 +121,7 @@ export default function RecipeReviewCard({prod}) {
       </Collapse>
       
       <button onClick={()=>{dispatch(deleteproduct(prod._id));dispatch(productGet())}}>Delete</button>
+      <button onClick={addToCartHandler}>Add To Cart</button>
 
       <div>
 

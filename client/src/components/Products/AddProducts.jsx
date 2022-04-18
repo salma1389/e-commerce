@@ -8,6 +8,7 @@ import { addproduct, productGet } from '../../redux/actions/actionProduct';
 // import StarRating from './StarRating';
 // import './AddProducts.css'
 
+
 const AddProducts = () => {
 
   const [nameproduct, setNameproduct] = useState("");
@@ -39,9 +40,13 @@ const AddProducts = () => {
         },
       }
 
-      const  {data}= await axios.post('/upload', fd, config)
+      // const  {data}= await axios.post('https://res.cloudinary.com/go-mu-code/image/upload/',fd, config)
 
-      setAvatar(data)
+      const res = await fetch(`https://res.cloudinary.com/go-mu-code/image/upload/`, {
+        method: "POST",
+        body: config,
+      });
+      setAvatar(res)
       // setUploading(false)
     } catch (error) {
       console.log(error)

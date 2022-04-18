@@ -10,7 +10,8 @@ import CategorysList from './components/Categorys/CategorysList';
 import Profil from './components/Profil/Profil';
 import ProductsList from './components/Products/ProductsList';
 import AddProducts from './components/Products/AddProducts';
-import Cartes from './components/Carts/Cartes';
+// import Cart from './components/Carts/Cart';
+import CartScreen from './components/Carts/CartScreen';
 
 function App() {
   return (
@@ -26,7 +27,9 @@ function App() {
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/profil" element={<Profil />} />
-        <Route path="/cart" element={<Cartes />} />
+        {/* <Route path="/cart" element={<Cart />} /> */}
+        <Route path="/cart/:_id" element={<CartScreen />} /> 
+        
         </Routes>
       </Router>
     </div>

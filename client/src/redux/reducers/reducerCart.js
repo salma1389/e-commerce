@@ -1,9 +1,9 @@
 import { CARD_ADD_ITEM, CARD_REMOVE_ITEM } from "../actionTypes/actionTypeCart";
 
 const init = {
-    cartItems: []
-    
+    cartItems:[]
   };
+
 
 
 export const cartReducer = (state = init, {type,payload}) => {
