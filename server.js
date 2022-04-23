@@ -11,6 +11,8 @@ app.use("/user",user)
 app.use("/products",product)
 app.use("/categorys",category)
 
+
+
 // app.get('/',(req,res)=>{
 //     res.json({msg:"welcome to my world"})
 // })

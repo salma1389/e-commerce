@@ -2,9 +2,10 @@ import { ADD_PRODUCT, ADD_PRODUCT_FAIL, ADD_PRODUCT_SUCCESS, DELETE_PRODUCT, DEL
 
 
 const init = {
-  product: null,
-  error: null,
+  product:null,
+ 
   loading: false,
+  
   
 };
 
@@ -32,19 +33,25 @@ export const productReducer=(state=init,{type,payload})=>{
 
                 case GET_ALL_PRODUCTS_SUCCESS:
                     case GET_ONE_PRODUCT_SUCCESS:
+                        return{
+                            ...state,loading:false,product:payload
+                        };
                         case ADD_PRODUCT_SUCCESS:
-                    return{
-                        ...state,loading:false,product:payload
-                    };
+                            return{
+                                ...state,loading:false,product:[...state.product,payload]
+                            }
+
+                      
+                  
         
             case UPDATE_PRODUCT_SUCCESS:
                            
                 return{
-                    ...state, product:state.product.map( el => el._id === payload._id ?payload :el)
+                    ...state, product:state.product.map( el => el._id === payload._id ?payload :el),loading:false
                 };
                 case DELETE_PRODUCT_SUCCESS:
                     return{
-                        ...state, product:state.product.filter(el => el._id !== payload)
+                        ...state, product:state.product.filter(el => el._id != payload),loading:false
                      };            
                    
     

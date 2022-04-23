@@ -32,7 +32,13 @@ import {
   };
 
   export const userLogOut = () => {
-    localStorage.clear()
+    // localStorage.clear();
+    // localStorage.removeItem('persist:auth')
+    // localStorage.removeItem('token')
+    // window.localStorage.clear();
+    // window.localStorage.removeItem("persist:auth"); 
+    localStorage.clear();
+
    
     document.location.href = '/'
   return  ({ type: LOGOUT}) 

@@ -1,179 +1,101 @@
-import axios from 'axios';
 import React, { useState } from 'react';
-import { Form } from 'react-bootstrap';
+import axios from 'axios';
 import Modal from 'react-modal';
-import { useDispatch } from 'react-redux';
-// import { useHistory} from 'react-router-dom';
+import { Button, Form } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
 import { addproduct, productGet } from '../../redux/actions/actionProduct';
-// import StarRating from './StarRating';
-// import './AddProducts.css'
 
 
-const AddProducts = () => {
+
+
+function AddProducts() {
+  const {loading} = useSelector( state => state.productReducer);
 
   const [nameproduct, setNameproduct] = useState("");
-  const [avatar, setAvatar] = useState("");
-  console.log(avatar)
-  // const [image, setImage] = useState("");
-  // const history = useHistory();
-  // const [data, setData] = useState({
-  //   name: "",
-  //   image: "",
-  // });
-  const dispatch=useDispatch()
- 
+  const [image, setImage] = useState("");
+
+
   //handel upload
-  const fileSelectedHandler = async(e) => {
-    //   setImage(e.target.files[0]);
-    //   await !loading
-    // console.log(image);
-
-    const file = e.target.files[0]
-    const fd = new FormData()
-    fd.append('image', file)
-    // setUploading(true)
-
-    try {
-      const config = {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      }
-
-      // const  {data}= await axios.post('https://res.cloudinary.com/go-mu-code/image/upload/',fd, config)
-
-      const res = await fetch(`https://res.cloudinary.com/go-mu-code/image/upload/`, {
-        method: "POST",
-        body: config,
-      });
-      setAvatar(res)
-      // setUploading(false)
-    } catch (error) {
-      console.log(error)
-      // setUploading(false)
+  const fileSelectedHandler = (name) => (e) => {
+   const value= name === "image" ? setImage(e.target.files[0]) : setNameproduct( e.target.value);  
     }
 
-  }
+    // console.log("nameproduct",nameproduct);
+    // console.log("avatar",image);
+
   //handle submit
-  // const dispatch = useDispatch();
-  const handleSubmit = (e) => {
+  const dispatch = useDispatch();
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    const fd = new FormData();
-    fd.append('image', setAvatar(avatar.name))
-    const newProduct = { nameproduct,avatar };
-    dispatch(addproduct(newProduct));
-    dispatch(productGet());
-    closeModal();
+    let formData = new FormData();
+    formData.append("image", image);
+    formData.append("nameproduct", nameproduct);
+
+    await dispatch(addproduct(formData));
+   setImage("")
+   setNameproduct("")
+   closeModal();
+      await dispatch(productGet());
+    
+  }
+  // modal
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  };
+
+  const [modalIsOpen, setIsOpen] = React.useState(false);
+
+  function openModal() {
+    setIsOpen(true);
   }
 
-  // const handleChange = (name) => (e) => {
-  //   const value = name === "image" ? e.target.files[0] : e.target.value;
-  //   setData({ ...data, [name]: value });
-  // };
-  // const handleSubmit = async () => {
-  //   try {
-  //     let formData = new FormData();
-  //     formData.append("image", data.image);
-  //     formData.append("name", data.name);
+  function closeModal() {
+    setIsOpen(false);
+  }
 
-  //     const res = await fetch(`http://localhost:4000//products`, {
-  //       method: "POST",
-  //       body: formData,
-  //     });
-  //     if (res.ok) {
-  //       setData({ name: "", image: "" });
-  //       // history.replace("/");
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-  
-  //Submit the newMovie
-  // const handelSubmit=(e)=>{
-  //   e.preventDefault();
-  //   const newProductAdd={
-  //     id:Math.random(),nameproduct,avatar
-  //   }
-  //   dispatch(addproduct(newProductAdd))
-  //       dispatch(productGet())
-  //   setNameproduct("")
-  //   setAvatar("")
-  //   closeModal()
-  // }
-    const customStyles = {
-        content: {
-          top: '50%',
-          left: '50%',
-          right: 'auto',
-          bottom: 'auto',
-          marginRight: '-50%',
-          transform: 'translate(-50%, -50%)',
-        },
-      };
-      Modal.setAppElement('#root');
-    const [modalIsOpen, setIsOpen] = React.useState(false);
-    function openModal() {
-        setIsOpen(true);
-      }
-      function closeModal() {
-        setIsOpen(false);
-      }
-  return <div className='addblock'>
-<button onClick={openModal}>Add Product</button>
+  Modal.setAppElement('#root');
+
+  return (
+    <div>
+      <Button onClick={openModal}>Add Product</Button>
+
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <form onSubmit={handleSubmit}>
-        <label >Product Name</label>
-        <input
-          className="form-control"
-          placeholder="Enter name"
-          type="text"
-          name="name"
-          value={nameproduct}
-          onChange={(e) => setNameproduct(e.target.value)}
-        />
-        <label >Product Image</label>
-        <Form.Control type="file" onChange={fileSelectedHandler} />
-         {/* <input
-          className="form-control"
-          type="file"
-          // accept="image/*"
-          name="image"
-          onChange={fileSelectedHandler("image")}
-        /> */}
-      
-        {/* <label >Product Poster</label>
-        <input type="text" value={avatar} onChange={(e)=>setAvatar(e.target.value)}/> */}
-         {/* <Form.Group controlId='image'>
-              <Form.Label>Image</Form.Label>
-              <Form.Control
-                type='file'
-                placeholder='Enter image url'
-                value={avatar}
-                // onChange={(e) => setAvatar(e.target.value)}
-              ></Form.Control>
-              <Form.File
-                // id='image-file'
-                label='Choose File'
-                custom
-                onChange={uploadFileHandler}
-              ></Form.File>
-          
-            </Form.Group> */}
+        <Form encType="multipart/form-data" onSubmit={handleSubmit} >
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
 
-        <div>
-          <button type='submit'>Confirm</button>
-          <button onClick={closeModal}>Cancel</button>
-        </div>
-      </form>
+            <Form.Control type="text" placeholder='product name' value={nameproduct} onChange={fileSelectedHandler('name')} />
+          </Form.Group>
+
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+
+          </Form.Group>
+          {/* uploadfile */}
+          <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+
+            <Form.Control type="file"  name="image" onChange={fileSelectedHandler('image')} />
+          </Form.Group>
+
+          <div className='btn-add' >
+            <Button variant="secondary" onClick={() => closeModal()}> Cancel </Button>
+            <Button variant="primary" type="submit" > Add </Button>
+          </div>
+        </Form>
       </Modal>
       
-  </div>;
-};
+    </div>
+  );
+}
 
 export default AddProducts;

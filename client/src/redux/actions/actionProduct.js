@@ -59,9 +59,11 @@ import { ADD_PRODUCT, ADD_PRODUCT_FAIL, ADD_PRODUCT_SUCCESS, DELETE_PRODUCT, DEL
       dispatch({ type: UPDATE_PRODUCT});
       try {
         const res = await axios.put(`/products/api/product/${product._id}`,product);
+       
         dispatch({
+         
           type: UPDATE_PRODUCT_SUCCESS,
-          payload: res.data,
+          payload: res.data.nameproduct,
         });
       } catch (error) {
         dispatch({

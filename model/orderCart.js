@@ -10,10 +10,10 @@ const orderSchema = mongoose.Schema(
     },
     orderItems: [
       {
-        nameproduct: { type: String, required: true },
+        // nameproduct: { type: String, required: true },
         qty: { type: Number, required: true },
-        avatar: { type: String, required: true },
-        price: { type: Number, required: true },
+        // avatar: { type: String, required: true },
+        // price: { type: Number, required: true },
         product: {
           type: mongoose.Schema.Types.ObjectId,
           required: true,
@@ -39,17 +39,17 @@ const orderSchema = mongoose.Schema(
     // },
     taxPrice: {
       type: Number,
-      required: true,
+      required: false,
       default: 0.0,
     },
     shippingPrice: {
       type: Number,
-      required: true,
+      required: false,
       default: 0.0,
     },
     totalPrice: {
       type: Number,
-      required: true,
+      required: false,
       default: 0.0,
     },
     // isPaid: {

@@ -49,10 +49,12 @@ const Navbarr = () => {
       <div className='btnCartCount' >
          
     <div className='count'>0</div>
-      
-    <i className='fas fa-shopping-cart'></i>
     
- 
+    { user ?
+      <Nav.Link className='nameMenu' href="/cart">  <i className='fas fa-shopping-cart'></i> </Nav.Link> :
+      <Nav.Link className='nameMenu' href="/login">  <i className='fas fa-shopping-cart'></i> </Nav.Link> 
+      }
+    
 </div>
       {/* <Badge badgeContent={4} color="primary">
               <ShoppingCartOutlined />

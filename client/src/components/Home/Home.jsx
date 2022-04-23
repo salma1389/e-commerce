@@ -16,7 +16,7 @@ const Home = () => {
 }
   return (
     <div>
-      <input type="file" />
+ 
       <div className='carousel'>
     <Carousel variant="dark">
   <Carousel.Item>
