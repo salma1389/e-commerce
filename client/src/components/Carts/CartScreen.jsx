@@ -53,20 +53,22 @@ const CartScreen = ({ location, history }) => {
                   <Row>
                     <Col md={2}>
                       <Image
+                      style={{"height":"15vh"}}
                         src={item.avatar}
                         alt={item.nameproduct}
                         fluid
                         rounded
                       />
                     </Col>
-                    <Col md={3}>
+                    <Col md={3} style={{"marginTop":"8vh"}}>
                       <Link to={`/product/${item.product}`}>
                         {item.nameproduct}
                       </Link>
                     </Col>
-                    <Col md={2}>${item.price}</Col>
+                    <Col md={2} style={{"marginTop":"8vh"}}>${item.price}</Col>
                     <Col md={2}>
                       <Form.Control
+                      style={{"marginTop":"8vh"}}
                         as="select"
                         value={item.qty}
                         onChange={(e) =>
@@ -82,7 +84,7 @@ const CartScreen = ({ location, history }) => {
                         ))}
                       </Form.Control>
                     </Col>
-                    <Col md={2}>
+                    <Col md={2} style={{"marginTop":"8vh"}}>
                       <Button
                         type="button"
                         variant="light"
@@ -97,8 +99,9 @@ const CartScreen = ({ location, history }) => {
             </ListGroup>
           )}
         </Col>
-        <Col md={4}>
-          <Card>
+        </Row>
+       
+          <Card style={{"marginLeft":"70vw","marginTop":"-50vh","width":"20vw","height":"25vw"}}>
             <ListGroup variant="flush">
               <ListGroup.Item>
                 <h2>
@@ -122,8 +125,8 @@ const CartScreen = ({ location, history }) => {
               </ListGroup.Item>
             </ListGroup>
           </Card>
-        </Col>
-      </Row>
+     
+      
     </>
   );
 };

@@ -50,8 +50,8 @@ function App() {
 
 
         <Route path="/men" element={<CategoryListMen/>} />
-        <Route path="/Clothes" element={<ProductListClothesM/>} />
-        <Route path="/Shoes" element={<ProductListShoesM/>} />
+        <Route path="/Men_clothes" element={<ProductListClothesM/>} />
+        <Route path="/Men_shoes" element={<ProductListShoesM/>} />
 
         <Route path="/kids" element={<CategoryListKids/>} />
         <Route path="/kids_clothes" element={<ProductListClothesK/>} />

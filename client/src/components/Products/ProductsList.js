@@ -8,6 +8,7 @@ import "./Products.css"
 
 const ProductsList = () => {
     const {product,loading} = useSelector( state => state.productReducer);
+  const { user } = useSelector((state) => state.userReducer);
     
     
 
@@ -21,7 +22,12 @@ const ProductsList = () => {
   }, [])
   return (
     <div>
-      <AddProducts />
+      <div>
+        {user && user.roles == "admin" ? 
+        <AddProducts />
+        : null}
+      </div>
+      
     <div className='prodList'>
          { loading?<h1> loading...</h1>:
       product && React.Children.toArray( product.map( el => < ProductsCard prod={el} />))

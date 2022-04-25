@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { Card } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { oneproductGet } from "../../redux/actions/actionProduct";
 import "./DetailProduct.css";
 import styled from "styled-components";
+import { addToCart } from "../../redux/actions/actionCart";
 
 const FilterContainer = styled.div`
   width: 80%;
@@ -42,7 +43,8 @@ const FilterSizeOption = styled.option``;
 const DetailProduct = () => {
   //reducer state
   const { product } = useSelector((state) => state.productReducer);
-
+  const { user } = useSelector((state) => state.userReducer);
+// console.log(product.color)
   const dispatch = useDispatch();
   const { _id } = useParams();
 
@@ -69,6 +71,10 @@ const DetailProduct = () => {
         <FilterContainer>
           <Filter>
             <FilterTitle>Color</FilterTitle>
+            {/* {
+      product&& React.Children.toArray(product.color.map((x) => <FilterColor color= "x" />))
+    
+         } */}
             <FilterColor color="black" />
             <FilterColor color="darkblue" />
             <FilterColor color="gray" />
@@ -76,11 +82,12 @@ const DetailProduct = () => {
           <Filter>
             <FilterTitle>Size</FilterTitle>
             <FilterSize>
+           
               {/* {
       product.size.map( el =>  <FilterSizeOption> {el} </FilterSizeOption>)
         
             } */}
-            <FilterSizeOption>XS</FilterSizeOption>
+            {/* <FilterSizeOption>{product.size}</FilterSizeOption> */}
               <FilterSizeOption>S</FilterSizeOption>
               <FilterSizeOption>M</FilterSizeOption>
               <FilterSizeOption>L</FilterSizeOption>
@@ -88,6 +95,20 @@ const DetailProduct = () => {
             </FilterSize>
           </Filter>
         </FilterContainer>
+        <div>
+        {user && user.roles == "user" ? (
+          <button onClick={() => dispatch(addToCart(product._id, 1))}>
+            Add To Cart
+          </button>
+        ) : (
+          <Link to="/login">
+             <Button style={{"width":"8vw","marginLeft":"4vw","marginTop":"15vh"}} onClick={() => dispatch(addToCart(product._id, 1))}> Add To Cart</Button>
+            {/* <button onClick={() => dispatch(addToCart(product._id, 1))}>
+              Add To Cart
+            </button> */}
+          </Link>
+        )}
+      </div>
       </div>
     </div>
   );

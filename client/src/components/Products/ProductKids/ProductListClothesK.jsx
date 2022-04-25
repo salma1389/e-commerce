@@ -5,9 +5,12 @@ import ProductsCard from '../ProductsCard';
 // import AddProducts from './AddProducts';
 
 import "../Products.css"
+import AddProducts from '../AddProducts';
 
 const ProductsListKidsC = () => {
     const {product,loading} = useSelector( state => state.productReducer);
+  const { user } = useSelector((state) => state.userReducer);
+
     
     // console.log(product)
 
@@ -21,7 +24,11 @@ const ProductsListKidsC = () => {
   }, [])
   return (
     <div>
-      {/* <AddProducts /> */}
+      <div>
+        {user && user.roles == "admin" ? 
+        <AddProducts />
+        : null}
+      </div>
     <div className='prodList'>
          { loading?<h1> loading...</h1>: (
       product && React.Children.toArray(product.filter(el => el.category === 'kids' && el.subcategory === 'kids_clothes').map((x) => <ProductsCard prod={x} />))

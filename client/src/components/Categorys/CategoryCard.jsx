@@ -16,6 +16,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import "./Categorys.css";
 import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 
 
@@ -61,7 +62,7 @@ export default function RecipeReviewCard({ categ }) {
           <ShareIcon />
         </IconButton>
         <Link to={`/${categ.categName}`}>
-          <button> see choice</button>
+          <Button style={{"width":"6vw","marginLeft":"4vw"}}> see choice</Button>
         </Link>
       </CardActions>
     </Card>

@@ -20,7 +20,7 @@ const CategoryListMen = () => {
       <h1> loading...</h1>
     ) : (
       category &&
-      React.Children.toArray(category.filter(el => el.categName === 'Clothes' ||  el.categName === 'Shoes').map((x) => <CategoryCard categ={x} />)
+      React.Children.toArray(category.filter(el => el.categName === 'Men_clothes' ||  el.categName === 'Men_shoes').map((x) => <CategoryCard categ={x} />)
       )
     )}
   </div>
