@@ -97,9 +97,9 @@ const DetailProduct = () => {
         </FilterContainer>
         <div>
         {user && user.roles == "user" ? (
-          <button onClick={() => dispatch(addToCart(product._id, 1))}>
+          <Button style={{"width":"8vw","marginLeft":"4vw","marginTop":"15vh"}} onClick={() => dispatch(addToCart(product._id, 1))}>
             Add To Cart
-          </button>
+          </Button>
         ) : (
           <Link to="/login">
              <Button style={{"width":"8vw","marginLeft":"4vw","marginTop":"15vh"}} onClick={() => dispatch(addToCart(product._id, 1))}> Add To Cart</Button>

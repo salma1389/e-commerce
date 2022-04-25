@@ -50,7 +50,7 @@ export default function RecipeReviewCard({ categ }) {
       <CardMedia
         className="image"
         component="img"
-        height="194"
+        height="300"
         image={categ.img}
         alt={categ.categName}
       />
@@ -62,7 +62,7 @@ export default function RecipeReviewCard({ categ }) {
           <ShareIcon />
         </IconButton>
         <Link to={`/${categ.categName}`}>
-          <Button style={{"width":"6vw","marginLeft":"4vw"}}> see choice</Button>
+          <Button style={{"width":"6vw","marginLeft":"4vw","height":"1vh"}}> <h6>see choice</h6> </Button>
         </Link>
       </CardActions>
     </Card>

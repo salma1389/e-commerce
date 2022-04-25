@@ -23,7 +23,7 @@ const {loading}=useSelector(state=>state.userReducer)
       {loading ? (
         <h1>Loading...</h1>
       ) : localStorage.getItem("token") ? (
-        <Navigate to="/profil" />
+        <Navigate to="/" />
       ) : (<Form onSubmit={handleSubmit}>
            <h2>ENTER YOUR ACCOUNT</h2>
         <Form.Group className="mb-3" controlId="formBasicEmail">
