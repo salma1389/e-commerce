@@ -6,7 +6,7 @@ import ProductsCard from '../ProductsCard';
 
 import "../Products.css"
 
-const ProductsListMenS = () => {
+const ProductsListKidsS = () => {
     const {product,loading} = useSelector( state => state.productReducer);
     
     // console.log(product)
@@ -24,7 +24,7 @@ const ProductsListMenS = () => {
       {/* <AddProducts /> */}
     <div className='prodList'>
          { loading?<h1> loading...</h1>: (
-      product && React.Children.toArray(product.filter(el => el.category === 'men' && el.subcategory === 'shoes').map((x) => <ProductsCard prod={x} />))
+      product && React.Children.toArray(product.filter(el => el.category === 'kids' && el.subcategory === 'kids_shoes').map((x) => <ProductsCard prod={x} />))
     
          )}
     </div>
@@ -32,4 +32,4 @@ const ProductsListMenS = () => {
   )
 }
 
-export default ProductsListMenS ;
+export default ProductsListKidsS ;

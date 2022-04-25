@@ -24,7 +24,7 @@ const ProductsListMenC = () => {
       {/* <AddProducts /> */}
     <div className='prodList'>
          { loading?<h1> loading...</h1>: (
-      product && React.Children.toArray(product.filter(el => el.category === 'men' && el.subcategory === 'clothers').map((x) => <ProductsCard prod={x} />))
+      product && React.Children.toArray(product.filter(el => el.category === 'men' && el.subcategory === 'Clothes').map((x) => <ProductsCard prod={x} />))
     
          )}
     </div>

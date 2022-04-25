@@ -11,7 +11,7 @@ export const sliderItems = [
       img: "https://thumbs.dreamstime.com/z/new-collection-banner-autumn-fall-leaves-colorful-seasonal-rowan-acorns-shopping-discount-promotion-128357091.jpg",
       title: "AUTUMN COLLECTION",
       desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "#f6eeeb",
+      bg: "#FFF7F5",
     },
     {
       id: 3,

@@ -21,6 +21,12 @@ import ProductListClothes from './components/Products/ProductWomen/ProductListCl
 import ProductListShoes from './components/Products/ProductWomen/ProductListShoes';
 import ProductListBags from './components/Products/ProductWomen/ProductListBags';
 import ProductListMakeUp from './components/Products/ProductWomen/ProductListMakeUp';
+import ProductListClothesM from './components/Products/ProductMen/ProductListClothesM';
+import ProductListShoesM from './components/Products/ProductMen/ProductListShoesM';
+import ProductListClothesK from './components/Products/ProductKids/ProductListClothesK';
+import ProductListShoesK from './components/Products/ProductKids/ProductListShoesK';
+
+
 
 
 
@@ -37,19 +43,19 @@ function App() {
         <Route path="/categorys" element={<CategorysList/>} />
 
         <Route path="/women" element={<CategoryListWomen/>} />
-        <Route path="/wclothes" element={<ProductListClothes/>} />
-        <Route path="/wshoes" element={<ProductListShoes/>} />
-        <Route path="/wbags" element={<ProductListBags/>} />
-        <Route path="/wmakeup" element={<ProductListMakeUp/>} />
+        <Route path="/clothes" element={<ProductListClothes/>} />
+        <Route path="/shoes" element={<ProductListShoes/>} />
+        <Route path="/bags" element={<ProductListBags/>} />
+        <Route path="/makeup" element={<ProductListMakeUp/>} />
 
 
         <Route path="/men" element={<CategoryListMen/>} />
-        <Route path="/mclothes" element={<ProductListClothes/>} />
-        <Route path="/mshoes" element={<ProductListShoes/>} />
+        <Route path="/Clothes" element={<ProductListClothesM/>} />
+        <Route path="/Shoes" element={<ProductListShoesM/>} />
 
         <Route path="/kids" element={<CategoryListKids/>} />
-        <Route path="/wclothes" element={<ProductListClothes/>} />
-        <Route path="/wshoes" element={<ProductListShoes/>} />
+        <Route path="/kids_clothes" element={<ProductListClothesK/>} />
+        <Route path="/kids_shoes" element={<ProductListShoesK />} />
 
         <Route path="/signUp" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
