@@ -14,6 +14,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
+import "./Categorys.css"
 
 const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
@@ -27,7 +28,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function RecipeReviewCard({categ}) {
-  console.log(categ)
+  // console.log(categ)
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -35,7 +36,7 @@ export default function RecipeReviewCard({categ}) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card  className='card' sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -50,7 +51,7 @@ export default function RecipeReviewCard({categ}) {
         title={categ.categName}
         subheader="September 14, 2016"
       />
-      <CardMedia
+      <CardMedia className='image'
         component="img"
         height="194"
         image={categ.img}

@@ -1,0 +1,56 @@
+.container1{
+    width: 75%;
+
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+    border: thick double black;
+    margin: auto;
+    margin-top: 2%;
+}
+
+.ImgContainer{
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.wrapper{
+    margin: auto;
+    margin-left: 5%;
+}
+.image {
+    /* width: 95%; */
+    height: 80vh;
+    object-fit: cover;
+}
+
+.title{
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.price{
+   font-weight: 100;
+   font-size: 40px;
+}
+
+h4{
+    /* margin: 20px 0px; */
+    /* margin-top: auto; */
+    font-weight: 100;
+
+}
+
+/* h3{
+    font-weight: 800;
+} */
+
+.span{
+    display: flex;
+    justify-content: start;
+}
+
+h2{
+  margin-top: 5.5%;
+}
+

@@ -1,5 +1,6 @@
 .navb{
   background-color: rgb(61, 61, 146);
+  margin-bottom: 5vh;
 }
 
 /* panier icon */
@@ -44,3 +45,5 @@
   .nameMenu{
       color: rgb(243, 241, 238);
   }
+
+ 

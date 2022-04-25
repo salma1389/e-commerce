@@ -39,7 +39,7 @@ import {
   export const onecategGet = (_id) => async (dispatch) => {
     dispatch({ type: GET_ONE_CATEGORY });
     try {
-      const res = await axios.get(`/categorys/api/category/:${_id}`);
+      const res = await axios.get(`/categorys/api/category/${_id}`);
       dispatch({
         type: GET_ONE_CATEGORY_SUCCESS,
         payload: res.data,

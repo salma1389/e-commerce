@@ -31,11 +31,15 @@ export const categReducer=(state=init,{type,payload})=>{
                 };
 
                 case GET_CATEGORY_SUCCESS:
-                    case GET_ONE_CATEGORY_SUCCESS:
                         case ADD_CATEGORY_SUCCESS:
                     return{
                         ...state,loading:false,category:payload
                     };
+
+                    case GET_ONE_CATEGORY_SUCCESS:
+                        return{
+                            ...state, category:state.category.filter(el => el._categName === payload)
+                         }; 
         
             case UPDATE_CATEGORY_SUCCESS:
                            

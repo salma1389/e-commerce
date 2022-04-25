@@ -17,7 +17,7 @@ const {loading}=useSelector(state=>state.userReducer)
     }
   return (
     <div  className="container">
-      <div className="wrapper">
+      <div className="wrappper">
       
       {loading ? (
         <h1>Loading...</h1>

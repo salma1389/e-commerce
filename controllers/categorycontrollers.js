@@ -41,18 +41,30 @@ const  getCategorys = async (req, res) => {
     }
   };
 
+    //  get one category by categname
+
+    // const getCategoryByname = async (req, res) => {
+    //   try {
+    //     const oneCategory = await category.findById(req.params._id);
+    
+    //     res.send(oneCategory);
+    //   } catch (error) {
+    //       res.status(500).json({msg:error.message})
+    //   }
+    // };
+
   //  get category by Id and update it
   const updateCategory = async (req, res) => {
     try {
       const onecategory = await category.findById(req.params._id);
   // await cloudinary.uploader.destroy(onecategory.cloudinary_id)
-  // const result=await cloudinary.uploader.upload(req.file.path);
+  const result=await cloudinary.uploader.upload(req.file.path);
   const data={
     categName:req.body.categName || onecategory.categName,
     img:await cloudinary.uploader.upload(req.file.path).secure_url || onecategory.img,
     cloudinary_id:await cloudinary.uploader.upload(req.file.path).public_id || onecategory.cloudinary_id,
-    // img:result.secure_url || onecategory.img,
-    // cloudinary_id:result.public_id || onecategory.cloudinary_id,
+    img:result.secure_url || onecategory.img,
+    cloudinary_id:result.public_id || onecategory.cloudinary_id,
   };
 
   const updatedcategory = await category.findByIdAndUpdate(req.params._id, data ,{new:true})

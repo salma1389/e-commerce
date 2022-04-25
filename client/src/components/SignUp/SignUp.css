@@ -10,14 +10,17 @@
     background-size: cover;
     /* object-fit: cover; */
     display: flex;
-    align-items: center;
-    justify-content: center;
+
+    align-items: center; 
+     justify-content: center;
+
 }
 
-.wrapper{
+.wrappper{
     width: 40%;
   padding: 20px;
   background-color: white;
+
 }
 
 h3{
