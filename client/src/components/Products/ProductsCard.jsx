@@ -36,6 +36,7 @@ const ExpandMore = styled((props) => {
 export default function RecipeReviewCard({ prod }) {
   const { user } = useSelector((state) => state.userReducer);
   const [qty, setQty] = React.useState(1);
+  const [like,setLike]=React.useState(false)
 
   // console.log(prod)
   // console.log(user)
@@ -50,6 +51,10 @@ export default function RecipeReviewCard({ prod }) {
   //   navigate(`/cart/${prod._id}`);
 
   // };
+
+  const handelLike= ()=>{
+    setLike(!like)
+  }
 
   return (
     <Card className="card" sx={{ maxWidth: 345 }}>
@@ -76,7 +81,7 @@ export default function RecipeReviewCard({ prod }) {
       />
       <CardActions disableSpacing>
         <IconButton aria-label="add to favorites">
-          <FavoriteIcon />
+          <FavoriteIcon className={like? "on":"off"} onClick={handelLike} />
         </IconButton>
 
         <Link to={`/detailProduct/${prod._id}`}>

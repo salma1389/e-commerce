@@ -10,7 +10,9 @@ import {
 } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
+import styled from "styled-components";
 import { addToCart, removeFromCart } from "../../redux/actions/actionCart";
+import Navbarr from "../Navbar/Navbarr";
 // import Message from '../components/Message'
 
 const CartScreen = ({ location, history }) => {
@@ -34,8 +36,11 @@ const CartScreen = ({ location, history }) => {
   //    const checkoutHandler=()=>{
   //     history.push('/login?redirect=shipping')
   //    }
+
+ 
   return (
     <>
+    
       <Link className="btn btn-light my-3" to="/">
         Go Back
       </Link>

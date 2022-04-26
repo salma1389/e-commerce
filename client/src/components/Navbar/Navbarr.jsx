@@ -29,7 +29,7 @@ const Navbarr = () => {
     <div>
       <Navbar className="navb" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#">Navbar scroll</Navbar.Brand>
+          <Navbar.Brand > <img style={{"width":'100px'}} src="/logo.jpg" alt="logo" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav

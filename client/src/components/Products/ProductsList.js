@@ -18,8 +18,10 @@ const ProductsList = () => {
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(productGet());
+const res= async()=> await  dispatch(productGet());
+  res()
   }, [])
+
   return (
     <div>
       <div>

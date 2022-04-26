@@ -3,21 +3,23 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin-top: 2rem;  
+    margin-top: 2rem; 
 }
 
 .card{
     width: 50vw;
     height: 70vh;
     margin-top: 5vh;
+    /* padding-bottom: 50px; */
     /* color: #faf6f5; */
+   
 }
-.image{
-    width: 300px;
-    /* height: 40vw; */
-    object-fit: cover;
-}
+
 
 h6{
     padding: 0%;
+}
+
+.on{
+    color: red;
 }

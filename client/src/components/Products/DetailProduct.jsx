@@ -51,7 +51,7 @@ const DetailProduct = () => {
   useEffect(() => {
     dispatch(oneproductGet(_id));
   }, []);
-
+console.log('product',product.color)
   return (
     <div className="container1">
       <div className="ImgContainer">
@@ -71,27 +71,27 @@ const DetailProduct = () => {
         <FilterContainer>
           <Filter>
             <FilterTitle>Color</FilterTitle>
-            {/* {
-      product&& React.Children.toArray(product.color.map((x) => <FilterColor color= "x" />))
+            {
+      product.color && React.Children.toArray(product.color.map((el) => <FilterColor color= {el} />))
     
-         } */}
-            <FilterColor color="black" />
+         }
+            {/* <FilterColor color="black" />
             <FilterColor color="darkblue" />
-            <FilterColor color="gray" />
+            <FilterColor color="gray" /> */}
           </Filter>
           <Filter>
             <FilterTitle>Size</FilterTitle>
             <FilterSize>
            
-              {/* {
-      product.size.map( el =>  <FilterSizeOption> {el} </FilterSizeOption>)
+              {
+     product.size && React.Children.toArray(product.size.map( el =>  <FilterSizeOption> {el} </FilterSizeOption>))
         
-            } */}
+            }
             {/* <FilterSizeOption>{product.size}</FilterSizeOption> */}
-              <FilterSizeOption>S</FilterSizeOption>
+              {/* <FilterSizeOption>S</FilterSizeOption>
               <FilterSizeOption>M</FilterSizeOption>
               <FilterSizeOption>L</FilterSizeOption>
-              <FilterSizeOption>XL</FilterSizeOption>
+              <FilterSizeOption>XL</FilterSizeOption> */}
             </FilterSize>
           </Filter>
         </FilterContainer>
